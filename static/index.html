@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        .screen{
+            height: 600px;
+            width: 600px;
+            display: block;
+            align-items: center;
+           
+            margin: 60px;
+            margin-left: 400px;
+           
+        }
+        .regi{
+            height: 400px;
+            width: 400px;
+            display: block;
+            align-items: center;
+            border:2px solid black ;
+            border-radius: 20px;
+            margin: 60px;
+            margin-left: 90px;
+            margin-top: 80px;
+            float: none;
+            background-color: blanchedalmond;
+            box-shadow: 10px 5px 5px gray;
+        }
+
+        h1{
+            display: block;
+            align-items: center;
+            text-align: center;
+            margin: 20px;
+        }
+
+        #uname{
+            display: block;
+            text-align: center;
+            margin: 20px;
+            margin-left: 60px;
+            border-radius: 10px;
+            border: 2px solid black;
+            text-decoration: solid;
+            box-shadow: 5px 3px 3px gray;
+            font-size: 20px;
+        }
+
+
+        #pass{
+            display: block;
+            text-align: center;
+            margin: 20px;
+            margin-left: 60px;
+            border-radius: 10px;
+            border: 2px solid black;
+            text-decoration: solid;
+            box-shadow: 5px 3px 3px gray;
+            font-size: 20px;
+        }
+        #submit{
+            display: block;
+            text-align: center;
+            margin: 20px;
+            margin-left: 140px;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 5px 3px 3px gray;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <div class="regi">
+         
+            <h1>Registration</h1>
+        <form id="regi">
+            <input type="text" name="username" id="uname" placeholder="Username">
+            <input type="password" name="password" id="pass" placeholder="Password">
+            <input type="submit" value="SUBMIT" id="submit">
+    
+        </form>
+    
+        </div>
+    </div>
+    
+    <script>
+        const form=document.getElementById('regi');
+
+        form.addEventListener('submit',register)
+
+        async function register(e){
+            e.preventDefault()
+            const username=document.getElementById('uname').value;
+            const password=document.getElementById('pass').value; 
+
+            const result=await fetch('/api/register',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({
+                    username,
+                    password
+                })
+            }).then((res)=>res.json())
+
+            if(result.status==='done'){
+                 //everything ok
+                 alert('Success');
+            }
+            else{
+                alert(result.error);
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>
+
+

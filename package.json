@@ -1,0 +1,27 @@
+{
+  "name": "register-login_using_nodejs",
+  "version": "1.0.0",
+  "description": "By using node js,express and mongodb we can authenticate(for login) users and save data of registered users in database.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RudraTrivedi14/register-login_using_nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RudraTrivedi14/register-login_using_nodejs/issues"
+  },
+  "homepage": "https://github.com/RudraTrivedi14/register-login_using_nodejs#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4"
+  }
+}
